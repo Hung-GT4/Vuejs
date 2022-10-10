@@ -4,24 +4,23 @@
 import { reactive, ref } from "vue";
 export default {
       setup() {
+            const secondName = ref({
+                  title: "Reactive vs Ref",
+                  something: "VueJS",
+            });
             // reactive sử dụng trong object.
             const car = reactive({
                   title: "Reactive",
                   description: "vuejs",
             });
-            let secondName = ref({
-                  title: "Reactive vs Ref",
-                  something: "VueJS",
-            })
-
             const onChangeSomething = () => {
                   console.log(car);
                   console.log(secondName);
-                  car = {
+                  car.value = {
                         description: "sử dụng trong object",
                   };
                   secondName.value = {
-                        title: "sử dụng ref trong object sử dụng value",
+                        title: "ref trong object sử dụng value",
                   };
             };
             return { car, secondName, onChangeSomething }
@@ -29,7 +28,9 @@ export default {
 };
 </script>
 <template>
-      <p> {{car}}</p>
-      <p> {{secondName}}</p>
-      <button @click="onChangeSomething"> Reactive</button>
+      <p class="border-red-500 border-2 p-2 w-96 "> {{car}}</p>
+      <p class="border-red-500 border-2 p-2 w-96 "> {{secondName}}</p>
+      <button @click="onChangeSomething"
+            class="bg-blue-500 my-5 px-5 py-2 rounded text-white hover:bg-blue-700 shadow-black border-0">
+            Reactive</button>
 </template>

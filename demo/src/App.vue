@@ -1,36 +1,28 @@
 <template>
-  <div>
-    <h1> Hello!</h1>
-    <Ref />
-    <Reactive />
-    <Watch />
-    <WatchEffect />
-  </div>
-  <!-- <div>
-    <h1> {{title}}</h1>
-    <strong>Import component</strong>
+  <div class="container mx-auto pt-5">
+    <h1 class="text-2xl font-bold text-center"> Hello!</h1>
     <div>
-      <HelloWorld />
+      <Ref />
     </div>
     <div>
-      <CompositionApi /> -->
-  <!-- </div>
-  <div>
-    <TailwindCss />
+      <Reactive />
+    </div>
+    <div>
+      <Watch />
+    </div>
+    <div>
+      <Computed />
+    </div>
   </div>
-  </div> -->
+
 </template>
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import CompositionApi from "./components/CompositionApi.vue";
-import TailwindCss from "./components/TailwindCss.vue";
 import Ref from "./components/compositionApi/Ref.vue";
 import Reactive from "./components/compositionApi/Reactive.vue";
-import Watch from "./components/compositionApi/Watch.vue";
-import WatchEffect from "./components/compositionApi/WatchEffect.vue";
-import { ref, reactive, watch, watchEffect } from "vue";
+import Computed from "./components/compositionApi/Computed.vue";
+import './assets/main.css';
 export default {
-  components: { Ref, Reactive, WatchEffect, Watch },
+  components: { Ref, Reactive, Computed },
 
   setup() {
     const title = " Vue JS";
